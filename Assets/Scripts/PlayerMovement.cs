@@ -142,10 +142,11 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+    
     //wall Jump
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.transform.name == "FallingPlatform") Destroy(hit.gameObject,1f);
+        //if(hit.transform.name == "FallingPlatform") Destroy(hit.gameObject,1f);
         if (hit.gameObject.layer == 10)
         {
             if (!controller.isGrounded && hit.normal.y < 0.1f)

@@ -17,6 +17,10 @@ public class Finish : MonoBehaviour
             {
                 SceneManager.LoadScene("Level1");
             }
+            else if (currentScene == "Level1")
+            {
+                SceneManager.LoadScene("Menu");
+            }
         }   
     }
 }
