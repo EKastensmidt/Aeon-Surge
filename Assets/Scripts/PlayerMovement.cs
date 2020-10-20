@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public float speed = 12;
     Vector3 velocity;
-    public float gravity = -9.81f;
+    public float gravity = -25;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -117,8 +117,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            Debug.Log("Jumped");
             if (IsGrounded)
             {
+                gravity = -25f;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 groundedTimer = 0;
                 if (Time.time > jumpSoundTimer)
@@ -129,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (jumpTimer > 0 )
             {
+                gravity = -25f;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 jumpTimer = 0;
                 jumpFromWall = true;
@@ -151,8 +154,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!controller.isGrounded && hit.normal.y < 0.1f)
             {
-                if (lastWall == null || !jumpFromWall || lastWall != hit.transform)
+                if (lastWall == null || lastWall != hit.transform)
                 {
+                    Debug.Log("");
+                    StartCoroutine(GravityChange());
                     jumpTimer = wallGracePeriod;
                     lastWall = hit.transform;
                     jumpFromWall = false;
@@ -161,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (controller.isGrounded)
         {
+            gravity = -25f;
             lastWall = null;
         }
     }
@@ -173,5 +179,18 @@ public class PlayerMovement : MonoBehaviour
         isWallRight = Physics.Raycast(transform.position, transform.right, 1f, wallMask);
         isWallLeft = Physics.Raycast(transform.position, -transform.right, 1f, wallMask);
     }
+
+    IEnumerator GravityChange()
+    {
+        Debug.Log("start");
+        float controllerGravity = gravity;
+        velocity.y = 0;
+        gravity *= gravityMultiplier;
+        yield return new WaitForSeconds(gravityDuration);
+        gravity = controllerGravity;
+        Debug.Log("end");
+    }
+    float gravityDuration = 0.5f;
+    float gravityMultiplier = 0;
 
 }
