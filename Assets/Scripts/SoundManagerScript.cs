@@ -10,6 +10,9 @@ public class SoundManagerScript : MonoBehaviour
     public static AudioClip electricitySound;
     public static AudioClip hydraulicSound;
     public static AudioClip leverSound;
+    public static AudioClip powerUpSound;
+    public static AudioClip powerDownSound;
+
 
     static AudioSource audioSrc;
     void Start()
@@ -20,7 +23,8 @@ public class SoundManagerScript : MonoBehaviour
         electricitySound = Resources.Load<AudioClip>("Electricity");
         leverSound = Resources.Load<AudioClip>("Lever");
         hydraulicSound = Resources.Load<AudioClip>("Hydraulic");
-
+        powerDownSound = Resources.Load<AudioClip>("PowerDown");
+        powerUpSound = Resources.Load<AudioClip>("PowerUp");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -47,7 +51,12 @@ public class SoundManagerScript : MonoBehaviour
             case "Electricity":
                 audioSrc.PlayOneShot(electricitySound);
                 break;
-
+            case "PowerDown":
+                audioSrc.PlayOneShot(powerDownSound);
+                break;
+            case "PowerUp":
+                audioSrc.PlayOneShot(powerUpSound);
+                break;
         }
     }
 }
