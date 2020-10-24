@@ -21,18 +21,17 @@ public class PlayerMovement : MonoBehaviour
     float gracePeriod = 0.2f;
     float groundedTimer = 0;
     float jumpTimer=0;
-    float wallGracePeriod = 0.7f;
+    float wallGracePeriod = 0.5f;
     float nextJump;
     public GameObject anim;
     float animationCd = 0;
     float animationRate = 0.12f;
     
-
     float jumpSoundTimer = 0;
     float jumpSoundGracePeriod = 0.1f;
     float walkSoundTimer = 0;
     float walkSoundGracePeriod = 0.4f;
-
+    
     bool IsGrounded { get { return groundedTimer > 0; } }
 
     private void Start()
@@ -42,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGroundedSphere = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
+        
         //gracePeriod
         if (isGroundedSphere)
         {
@@ -55,18 +54,15 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
-
         }
 
         //move
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move.normalized * speed * Time.deltaTime);
 
         //Animations
-        
         if (animationCd < 0)
         {
             if (Input.GetMouseButtonDown(0))
@@ -117,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("Jumped");
             if (IsGrounded)
             {
                 gravity = -25f;
@@ -156,7 +151,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (lastWall == null || lastWall != hit.transform)
                 {
-                    Debug.Log("");
                     StartCoroutine(GravityChange());
                     jumpTimer = wallGracePeriod;
                     lastWall = hit.transform;
@@ -174,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
     bool jumpFromWall = false;
     bool isWallRight=false;
     bool isWallLeft=false;
-    private void CheckForWall() //make sure to call in void Update
+    private void CheckForWall() 
     {
         isWallRight = Physics.Raycast(transform.position, transform.right, 1f, wallMask);
         isWallLeft = Physics.Raycast(transform.position, -transform.right, 1f, wallMask);
@@ -182,15 +176,12 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator GravityChange()
     {
-        Debug.Log("start");
         float controllerGravity = gravity;
         velocity.y = 0;
         gravity *= gravityMultiplier;
         yield return new WaitForSeconds(gravityDuration);
         gravity = controllerGravity;
-        Debug.Log("end");
     }
     float gravityDuration = 0.5f;
     float gravityMultiplier = 0;
-
 }
