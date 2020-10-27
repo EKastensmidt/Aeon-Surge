@@ -1011,7 +1011,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh46818
+  m_Name: pb_Mesh14316
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1583,7 +1583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 1141708677}
@@ -3340,7 +3340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 356771287}
@@ -4034,7 +4034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 592558364}
@@ -4383,7 +4383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 0, b: 0.008262634, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 1163351998}
@@ -21271,7 +21271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 238635067}
@@ -23062,7 +23062,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh46804
+  m_Name: pb_Mesh14302
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25384,7 +25384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 1
   outlineColor: {r: 1, g: 0.018101137, b: 0, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 1439257925}
