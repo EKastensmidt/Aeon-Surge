@@ -129,7 +129,6 @@ public class PlayerMovement : MonoBehaviour
                 gravity = -25f;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 jumpTimer = 0;
-                jumpFromWall = true;
                 if (Time.time > jumpSoundTimer)
                 {
                     jumpSoundTimer = Time.time + jumpSoundGracePeriod;
@@ -152,9 +151,9 @@ public class PlayerMovement : MonoBehaviour
                 if (lastWall == null || lastWall != hit.transform)
                 {
                     StartCoroutine(GravityChange());
+
                     jumpTimer = wallGracePeriod;
                     lastWall = hit.transform;
-                    jumpFromWall = false;
                 }
             }
         }
@@ -165,7 +164,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     Transform lastWall;
-    bool jumpFromWall = false;
     bool isWallRight=false;
     bool isWallLeft=false;
     private void CheckForWall() 
@@ -173,7 +171,8 @@ public class PlayerMovement : MonoBehaviour
         isWallRight = Physics.Raycast(transform.position, transform.right, 1f, wallMask);
         isWallLeft = Physics.Raycast(transform.position, -transform.right, 1f, wallMask);
     }
-
+    float gravityDuration = 0.5f;
+    float gravityMultiplier = 0;
     IEnumerator GravityChange()
     {
         float controllerGravity = gravity;
@@ -182,6 +181,4 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(gravityDuration);
         gravity = controllerGravity;
     }
-    float gravityDuration = 0.5f;
-    float gravityMultiplier = 0;
 }
