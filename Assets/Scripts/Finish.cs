@@ -19,7 +19,7 @@ public class Finish : MonoBehaviour
             }
             else if (currentScene == "Level1")
             {
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("Level2");
             }
         }   
     }
