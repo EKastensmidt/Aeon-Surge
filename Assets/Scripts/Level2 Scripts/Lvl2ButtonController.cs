@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour
+public class Lvl2ButtonController : MonoBehaviour
 {
     public bool isActivated = false;
+    public GameObject anim;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,11 +13,13 @@ public class ButtonController : MonoBehaviour
         {
             gameObject.GetComponent<Renderer>().material.color = Color.blue;
             isActivated = false;
+            anim.GetComponent<Animation>().CrossFade("Platform1Deactivate");
         }
         else
         {
             gameObject.GetComponent<Renderer>().material.color = Color.green;
             isActivated = true;
+            anim.GetComponent<Animation>().CrossFade("Platform1Activate");
         }
     }
 }

@@ -21,6 +21,12 @@ public class Finish : MonoBehaviour
             {
                 SceneManager.LoadScene("Level2");
             }
+            else if (currentScene == "Level2")
+            {
+                SceneManager.LoadScene("Menu");
+                Cursor.lockState = CursorLockMode.Confined;
+
+            }
         }   
     }
 }

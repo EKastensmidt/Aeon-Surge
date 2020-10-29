@@ -590,8 +590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26c08443edb4b84581eeca01c59386f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 60
-  seconds: 2
+  speed: 100
+  seconds: 1.5
   projectileSpawn: {fileID: 1735229781}
 --- !u!1 &151048535
 GameObject:
@@ -27589,6 +27589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73c2fd28a65bc94abad453680a971db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActivated: 0
 --- !u!43 &1682335711
 Mesh:
   m_ObjectHideFlags: 0

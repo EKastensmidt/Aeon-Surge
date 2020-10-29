@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     float gracePeriod = 0.2f;
     float groundedTimer = 0;
     float jumpTimer=0;
-    float wallGracePeriod = 0.5f;
+    float wallGracePeriod = 1f;
     float nextJump;
     public GameObject anim;
     float animationCd = 0;
