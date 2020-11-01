@@ -18,7 +18,7 @@ public class SpeedBoost : MonoBehaviour
         }
     }
 
-    IEnumerator Pickup (Collider player)
+    IEnumerator Pickup(Collider player)
     {
         stats = player.GetComponent<PlayerMovement>();
         if (isBoosted == false)

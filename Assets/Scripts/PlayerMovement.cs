@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 12;
+    public float speed = 20;
     Vector3 velocity;
     public float gravity = -25;
     public Transform groundCheck;
@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     float jumpSoundGracePeriod = 0.1f;
     float walkSoundTimer = 0;
     float walkSoundGracePeriod = 0.4f;
-    
     bool IsGrounded { get { return groundedTimer > 0; } }
 
     private void Start()
@@ -61,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move.normalized * speed * Time.deltaTime);
+
+        
 
         //Animations
         if (animationCd < 0)
@@ -138,8 +139,8 @@ public class PlayerMovement : MonoBehaviour
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
     }
-    
     //wall Jump
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
