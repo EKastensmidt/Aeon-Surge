@@ -180,6 +180,7 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = 0;
         gravity *= gravityMultiplier;
         yield return new WaitForSeconds(gravityDuration);
+        SoundManagerScript.PlaySound("Blip");
         gravity = controllerGravity;
     }
 }

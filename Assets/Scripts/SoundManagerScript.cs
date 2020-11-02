@@ -12,7 +12,7 @@ public class SoundManagerScript : MonoBehaviour
     public static AudioClip leverSound;
     public static AudioClip powerUpSound;
     public static AudioClip powerDownSound;
-
+    public static AudioClip blipSound;
 
     static AudioSource audioSrc;
     void Start()
@@ -25,6 +25,7 @@ public class SoundManagerScript : MonoBehaviour
         hydraulicSound = Resources.Load<AudioClip>("Hydraulic");
         powerDownSound = Resources.Load<AudioClip>("PowerDown");
         powerUpSound = Resources.Load<AudioClip>("PowerUp");
+        blipSound = Resources.Load<AudioClip>("Blip");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -56,6 +57,9 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "PowerUp":
                 audioSrc.PlayOneShot(powerUpSound);
+                break;
+            case "Blip":
+                audioSrc.PlayOneShot(blipSound);
                 break;
         }
     }
