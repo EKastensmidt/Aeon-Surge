@@ -27,9 +27,7 @@ public class Finish : MonoBehaviour
             }
             else if (currentScene == "Level3")
             {
-                //SceneManager.LoadScene("Level4");
-                SceneManager.LoadScene("Menu");
-                Cursor.lockState = CursorLockMode.None;
+                SceneManager.LoadScene("Level4");
             }
             else if (currentScene == "Level4")
             {

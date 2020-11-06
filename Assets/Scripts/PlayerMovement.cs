@@ -20,13 +20,13 @@ public class PlayerMovement : MonoBehaviour
     bool isGroundedSphere;
     float gracePeriod = 0.2f;
     float groundedTimer = 0;
-    float jumpTimer=0;
+    float jumpTimer = 0;
     float wallGracePeriod = 1f;
     float nextJump;
     public GameObject anim;
     float animationCd = 0;
     float animationRate = 0.12f;
-    
+
     float jumpSoundTimer = 0;
     float jumpSoundGracePeriod = 0.1f;
     float walkSoundTimer = 0;
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGroundedSphere = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        
+
         //gracePeriod
         if (isGroundedSphere)
         {
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move.normalized * speed * Time.deltaTime);
 
-        
+
 
         //Animations
         if (animationCd < 0)
@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
                     SoundManagerScript.PlaySound("Jump");
                 }
             }
-            else if (jumpTimer > 0 )
+            else if (jumpTimer > 0)
             {
                 gravity = -25f;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);

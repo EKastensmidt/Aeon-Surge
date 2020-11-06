@@ -8,6 +8,8 @@ public class Levels : MonoBehaviour
     public GameObject levelTutorial;
     public GameObject levelUno;
     public GameObject levelDos;
+    public GameObject levelTres;
+    public GameObject levelCuatro;
     public GameObject mainMenu;
 
     public void Tutorial()
@@ -21,6 +23,14 @@ public class Levels : MonoBehaviour
     public void Level2()
     {
         SceneManager.LoadScene("Level2");
+    }
+    public void Level3()
+    {
+        SceneManager.LoadScene("Level3");
+    }
+    public void Level4()
+    {
+        SceneManager.LoadScene("Level4");
     }
     public void MainMenu()
     {
