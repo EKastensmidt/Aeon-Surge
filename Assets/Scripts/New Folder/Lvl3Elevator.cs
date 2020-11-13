@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Lvl3Elevator : MonoBehaviour
 {
-    public GameObject anim;
-    bool isActivated = true;
+    public GameObject elevator;
     private void OnTriggerEnter(Collider other)
     {
-        if (isActivated == true)
+        StartCoroutine(Move(10000, 6));
+    }
+
+    IEnumerator Move(float limit, float speed)
+    {
+        float counter = 0;
+        while (counter < limit)
         {
-            Debug.Log("MOVE!!!");
-            anim.GetComponent<Animation>().CrossFade("Elevator");
-            isActivated = false;
+            elevator.transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+            counter++;
+            yield return null;
         }
     }
 }

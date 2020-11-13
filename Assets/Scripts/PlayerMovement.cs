@@ -174,13 +174,19 @@ public class PlayerMovement : MonoBehaviour
     }
     float gravityDuration = 0.5f;
     float gravityMultiplier = 0;
+    float blipDuration = 0.3f;
     IEnumerator GravityChange()
     {
         float controllerGravity = gravity;
         velocity.y = 0;
         gravity *= gravityMultiplier;
+        StartCoroutine(Blip());
         yield return new WaitForSeconds(gravityDuration);
-        SoundManagerScript.PlaySound("Blip");
         gravity = controllerGravity;
+    }
+    IEnumerator Blip()
+    {
+        yield return new WaitForSeconds(blipDuration);
+        SoundManagerScript.PlaySound("Blip");
     }
 }
