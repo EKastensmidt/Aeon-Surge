@@ -10,6 +10,7 @@ public class Levels : MonoBehaviour
     public GameObject levelDos;
     public GameObject levelTres;
     public GameObject levelCuatro;
+    public GameObject bossFight;
     public GameObject mainMenu;
 
     public void Tutorial()
@@ -31,6 +32,10 @@ public class Levels : MonoBehaviour
     public void Level4()
     {
         SceneManager.LoadScene("Level4");
+    }
+    public void BossFight()
+    {
+        SceneManager.LoadScene("BossFight");
     }
     public void MainMenu()
     {
