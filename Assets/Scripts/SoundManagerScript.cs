@@ -13,6 +13,7 @@ public class SoundManagerScript : MonoBehaviour
     public static AudioClip powerUpSound;
     public static AudioClip powerDownSound;
     public static AudioClip blipSound;
+    public static AudioClip lazerSound;
 
     static AudioSource audioSrc;
     void Start()
@@ -26,6 +27,7 @@ public class SoundManagerScript : MonoBehaviour
         powerDownSound = Resources.Load<AudioClip>("PowerDown");
         powerUpSound = Resources.Load<AudioClip>("PowerUp");
         blipSound = Resources.Load<AudioClip>("Blip");
+        lazerSound = Resources.Load<AudioClip>("Lazer");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -60,6 +62,9 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "Blip":
                 audioSrc.PlayOneShot(blipSound);
+                break;
+            case "Lazer":
+                audioSrc.PlayOneShot(lazerSound);
                 break;
         }
     }

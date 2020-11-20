@@ -149,7 +149,6 @@ public class PlayerMovement : MonoBehaviour
     //wall Jump
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        //if(hit.transform.name == "FallingPlatform") Destroy(hit.gameObject,1f);
         if (hit.gameObject.layer == 10)
         {
             if (!controller.isGrounded && hit.normal.y < 0.1f)
