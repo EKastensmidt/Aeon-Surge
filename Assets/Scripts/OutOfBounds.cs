@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class OutOfBounds : MonoBehaviour
 {
+    private ChangeCheckPoint cp;
+    private void Start()
+    {
+        cp = GameObject.Find("CP").GetComponent<ChangeCheckPoint>();
+        transform.position = cp.lastCheckPoint;
+    }
 
     private void Update()
     {

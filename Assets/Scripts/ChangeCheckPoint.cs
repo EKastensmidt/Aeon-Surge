@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class ChangeCheckPoint : MonoBehaviour
 {
-    public GameObject checkPoint;
-    private void OnTriggerEnter(Collider other)
+    public static ChangeCheckPoint instance;
+    public Vector3 lastCheckPoint;
+    private void Awake()
     {
-        if (other.gameObject.tag == "Player")
+        if (instance == null)
         {
-            Destroy(checkPoint);
+            instance = this;
+            DontDestroyOnLoad(instance);
         }
-        Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

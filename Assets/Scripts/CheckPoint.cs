@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    public Transform checkPoint;
-    GameObject player;
+    private ChangeCheckPoint cp;
     private void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        cp = GameObject.Find("CP").GetComponent<ChangeCheckPoint>();
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.name == "Player")
         {
-            player.transform.position = checkPoint.position;
-            player.transform.rotation = checkPoint.rotation;
+            cp.lastCheckPoint = transform.position;
         }
     }
 }
