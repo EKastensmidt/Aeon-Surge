@@ -8,7 +8,7 @@ public class OutOfBounds : MonoBehaviour
     private ChangeCheckPoint cp;
     private void Start()
     {
-        cp = GameObject.Find("CP").GetComponent<ChangeCheckPoint>();
+        cp = GameObject.FindGameObjectWithTag("CP").GetComponent<ChangeCheckPoint>();
         transform.position = cp.lastCheckPoint;
     }
 
@@ -16,8 +16,8 @@ public class OutOfBounds : MonoBehaviour
     {
         if (transform.position.y < -50 || Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        
+
     }
 }

@@ -7,13 +7,14 @@ public class CheckPoint : MonoBehaviour
     private ChangeCheckPoint cp;
     private void Start()
     {
-        cp = GameObject.Find("CP").GetComponent<ChangeCheckPoint>();
+        cp = GameObject.FindGameObjectWithTag("CP").GetComponent<ChangeCheckPoint>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
         {
             cp.lastCheckPoint = transform.position;
+
         }
     }
 }
