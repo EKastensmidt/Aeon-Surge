@@ -14,7 +14,6 @@ public class CheckPoint : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             cp.lastCheckPoint = transform.position;
-
         }
     }
 }

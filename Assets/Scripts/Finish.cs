@@ -31,9 +31,12 @@ public class Finish : MonoBehaviour
             }
             else if (currentScene == "Level4")
             {
-                //SceneManager.LoadScene("Level5");
                 Cursor.lockState = CursorLockMode.None;
                 SceneManager.LoadScene("Menu");
+            }
+            else if (currentScene == "BossFight")
+            {
+                SceneManager.LoadScene("demoScene_free 1");
             }
         }   
     }
